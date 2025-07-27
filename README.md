@@ -38,7 +38,7 @@ A modern, secure payment application UI built with React (Vite). This project pr
 *   **Font Awesome** (for icons)
 *   **CSS3** (Custom styling with modern layouts)
 
-## future scope
+## Future Scope
 
 * *Credit-Based System*
   A feature is planned to introduce a credit-based model for rewarding user engagement and participation, particularly for students.
