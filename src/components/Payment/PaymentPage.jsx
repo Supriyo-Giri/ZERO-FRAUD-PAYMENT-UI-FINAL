@@ -1,30 +1,34 @@
 // src/components/Payment/PaymentPage.jsx
 import React, { useState, useEffect } from 'react';
-import { useParams, useNavigate } from 'react-router-dom'; // Import useNavigate
+import { useParams, useNavigate } from 'react-router-dom';
 import { QRCodeSVG } from 'qrcode.react';
 
-const PaymentPage = ({ onPaymentSuccess }) => { // Accept onPaymentSuccess prop
+const PaymentPage = ({ onPaymentSuccess }) => {
   const { eventId } = useParams();
-  const navigate = useNavigate(); // Initialize navigate
+  const navigate = useNavigate();
   const [paymentStatus, setPaymentStatus] = useState(null);
   const [transactionData, setTransactionData] = useState(null);
-  const [qrCodeData, setQrCodeData] = useState('');
-  const [timeLeft, setTimeLeft] = useState(30);
+  const [qrCodeData, setQrCodeData] = useState(''); // For payment QR
+  const [timeLeft, setTimeLeft] = useState(30); // For payment QR timer
   const [isPaymentActive, setIsPaymentActive] = useState(false);
 
-  // Generate initial QR code data
+  // For Verification QR on success page
+  const [verificationQRData, setVerificationQRData] = useState('');
+  const [verificationTimeLeft, setVerificationTimeLeft] = useState(30);
+
+  // Generate initial payment QR code data
   useEffect(() => {
     generateQRCode();
   }, []);
 
-  // Handle QR code regeneration every 30 seconds
+  // Handle Payment QR code regeneration every 30 seconds
   useEffect(() => {
     let timer;
     if (isPaymentActive) {
       timer = setInterval(() => {
         setTimeLeft(prev => {
           if (prev === 1) {
-            generateQRCode();
+            generateQRCode(); // Regenerate payment QR
             return 30;
           }
           return prev - 1;
@@ -35,9 +39,40 @@ const PaymentPage = ({ onPaymentSuccess }) => { // Accept onPaymentSuccess prop
     return () => clearInterval(timer);
   }, [isPaymentActive]);
 
+  // Handle Verification QR code regeneration every 30 seconds (AFTER payment)
+  useEffect(() => {
+    let verificationTimer;
+    if (paymentStatus === 'success' && transactionData) {
+      // Generate initial verification QR
+      generateVerificationQRCode();
+
+      verificationTimer = setInterval(() => {
+        setVerificationTimeLeft(prev => {
+          if (prev === 1) {
+            generateVerificationQRCode(); // Regenerate verification QR
+            return 30; // Reset verification timer
+          }
+          return prev - 1;
+        });
+      }, 1000);
+    }
+
+    return () => {
+      if (verificationTimer) clearInterval(verificationTimer);
+    };
+  }, [paymentStatus, transactionData]); // Depend on payment success state
+
   const generateQRCode = () => {
     const newQRData = `EVENT_PAYMENT:${eventId}:${Date.now()}:${Math.random().toString(36).substr(2, 9)}`;
     setQrCodeData(newQRData);
+  };
+
+  const generateVerificationQRCode = () => {
+    if (transactionData && transactionData.hashCode) {
+      // Include the hash code and a new timestamp for verification QR
+      const newVerificationQRData = `PAYMENT_VERIFIED:${transactionData.hashCode}:${Date.now()}`;
+      setVerificationQRData(newVerificationQRData);
+    }
   };
 
   const handlePayment = () => {
@@ -53,16 +88,17 @@ const PaymentPage = ({ onPaymentSuccess }) => { // Accept onPaymentSuccess prop
       date: new Date().toISOString().split('T')[0],
       time: new Date().toISOString().split('T')[1].split('.')[0],
       description: `Payment for Event ${eventId}`,
-      amount: '₹450.00', // This should ideally come from the event data
+      amount: '₹450.00',
       status: 'Success',
-      hashCode: `********`
+      hashCode: `HASH${Math.random().toString(36).substr(2, 9).toUpperCase()}` // Generate a real hash
     };
 
     setTransactionData(newTransaction);
     setPaymentStatus('success');
     setIsPaymentActive(false);
+    // Initialize verification timer state
+    setVerificationTimeLeft(30);
 
-    // Call the function passed from the parent to update history
     if (onPaymentSuccess) {
       onPaymentSuccess(newTransaction);
     }
@@ -71,7 +107,6 @@ const PaymentPage = ({ onPaymentSuccess }) => { // Accept onPaymentSuccess prop
   };
 
   const handleBackToDashboard = () => {
-    // Navigate back to the student dashboard
     navigate('/student-dashboard');
   };
 
@@ -138,6 +173,7 @@ const PaymentPage = ({ onPaymentSuccess }) => { // Accept onPaymentSuccess prop
             <p>Your payment has been processed successfully.</p>
 
             <div className="transaction-details">
+              {/* ... existing transaction details ... */}
               <div className="detail-item">
                 <span className="detail-label">Transaction ID:</span>
                 <span className="detail-value">{transactionData.id}</span>
@@ -156,18 +192,18 @@ const PaymentPage = ({ onPaymentSuccess }) => { // Accept onPaymentSuccess prop
               </div>
               <div className="detail-item">
                 <span className="detail-label">Hash Code:</span>
-                <span className="detail-value">{transactionData.hashCode}</span>
+                <span className="detail-value">***************</span>
               </div>
             </div>
 
-            {/* QR Code Section for Verification */}
+            {/* QR Code Section for Verification - UPDATED */}
             <div className="qr-section">
               <h3>Verification QR Code</h3>
-              <p>This QR code contains your payment verification hash and expires in {timeLeft} seconds.</p>
+              <p>This QR code contains your payment verification hash and expires in {verificationTimeLeft} seconds.</p>
 
               <div className="qr-container">
                 <QRCodeSVG
-                  value={`PAYMENT_VERIFIED:${transactionData.hashCode}:${Date.now()}`}
+                  value={verificationQRData} // Use the verification QR data
                   size={200}
                   level="H"
                   includeMargin={true}
@@ -175,11 +211,11 @@ const PaymentPage = ({ onPaymentSuccess }) => { // Accept onPaymentSuccess prop
               </div>
 
               <div className="timer-container">
-                <p>Expires in: <span className="timer">{timeLeft}s</span></p>
+                <p>Expires in: <span className="timer">{verificationTimeLeft}s</span></p>
                 <div className="progress-bar">
                   <div
                     className="progress-fill"
-                    style={{ width: `${(timeLeft / 30) * 100}%` }}
+                    style={{ width: `${(verificationTimeLeft / 30) * 100}%` }}
                   ></div>
                 </div>
               </div>

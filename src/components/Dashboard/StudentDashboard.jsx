@@ -278,7 +278,7 @@ const StudentDashboard = ({ paymentHistory = [], userName = "Student" }) => {
                       {transaction.status}
                     </span>
                   </td>
-                  <td data-label="Hash">{transaction.hashCode}</td>
+                  <td data-label="Hash">**********</td>
                   <td data-label="Actions">
                     <button
                       className="btn btn-sm btn-secondary"
