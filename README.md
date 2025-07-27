@@ -1,12 +1,39 @@
-# React + Vite
+# Zero-Fraud Payment UI
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern, secure payment application UI built with React (Vite). This project provides separate dashboards for students and administrators, featuring secure payment flows with QR code generation, transaction history, event management, and fraud detection tools.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+*   **User Authentication**: Separate login/signup flows for Students and Admins.
+*   **Student Dashboard**:
+    *   Make secure payments for events using time-sensitive QR codes.
+    *   View personal payment history.
+    *   Generate and view verification QR codes for past transactions.
+*   **Admin Dashboard**:
+    *   Monitor key metrics (Revenue, Users, Transactions, Flagged Items).
+    *   View and manage payment transactions, including flagging suspicious activity.
+    *   Manage and organize events (Create, Read, Update, Delete).
+*   **Secure Payment Flow**:
+    *   Dynamic QR codes that regenerate every 30 seconds during payment.
+    *   Post-payment verification QR codes containing transaction hashes, also regenerating every 30 seconds.
+*   **Responsive Design**: Professional, mobile-friendly UI for all components.
 
-## Expanding the ESLint configuration
+## Getting Started
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+1.  **Clone the repository:**
+    `git clone <your-repository-url>`
+2.  **Navigate to the project directory:**
+    `cd transaction-app` (or your project folder name)
+3.  **Install dependencies:**
+    `npm install`
+4.  **Start the development server:**
+    `npm run dev`
+5.  The application should now be running on `http://localhost:5173` (or similar, check your terminal output).
+
+## Technologies Used
+
+*   **React** (with Vite)
+*   **React Router** (for navigation)
+*   **qrcode.react** (for generating QR codes)
+*   **Font Awesome** (for icons)
+*   **CSS3** (Custom styling with modern layouts)
