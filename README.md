@@ -12,7 +12,7 @@ A modern, secure payment application UI built with React (Vite). This project pr
 *   **Admin Dashboard**:
     *   Monitor key metrics (Revenue, Users, Transactions, Flagged Items).
     *   View and manage payment transactions, including flagging suspicious activity.
-    *   Manage and organize events (Create, Read, Update, Delete).
+    *   Manage and organize events (Create, Read, Update, Delete).(not yet added in this demo)
 *   **Secure Payment Flow**:
     *   Dynamic QR codes that regenerate every 30 seconds during payment.
     *   Post-payment verification QR codes containing transaction hashes, also regenerating every 30 seconds.
@@ -23,7 +23,7 @@ A modern, secure payment application UI built with React (Vite). This project pr
 1.  **Clone the repository:**
     `git clone <your-repository-url>`
 2.  **Navigate to the project directory:**
-    `cd transaction-app` (or your project folder name)
+    (or your project folder name)
 3.  **Install dependencies:**
     `npm install`
 4.  **Start the development server:**
@@ -37,3 +37,27 @@ A modern, secure payment application UI built with React (Vite). This project pr
 *   **qrcode.react** (for generating QR codes)
 *   **Font Awesome** (for icons)
 *   **CSS3** (Custom styling with modern layouts)
+
+## future scope
+
+* *Credit-Based System*
+  A feature is planned to introduce a credit-based model for rewarding user engagement and participation, particularly for students.
+
+* *Admin Community Forum*
+  A community space for admins will be developed to support event collaboration, feature discussions, and platform feedback.
+
+  
+* *Reverse Proxy with NGINX*
+  NGINX will be used as a reverse proxy to route requests, enhance performance, manage load balancing, serve static files, and improve overall system security.
+
+
+  * *Anti-Spam Alerts*: The system can also include basic moderation tools where admins are alerted if a user exhibits potential spam behavior, enabling timely action to maintain a healthy forum environment.
+
+* *Authentication System Expansion*
+  Currently, only the demo Signup and Login UI is available. Future versions will feature full authentication using a secure backend server and database for user management.
+
+* *Backend Integration*
+  A production-ready backend will handle data validation, submission, and persistent storage using databases like MongoDB or PostgreSQL.
+
+
+*Note: Currently, only the frontend UI has been built due to time constraints. The above features are part of the planned roadmap to ensure robustness, scalability, and user trust.*
