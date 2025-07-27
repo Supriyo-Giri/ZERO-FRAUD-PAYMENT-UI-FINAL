@@ -1,0 +1,1075 @@
+:root {
+  --primary-color: #007bff; /* Primary color for buttons and icons */
+  --primary-dark-color: #0056b3; /* Darker shade of primary color */
+  --success-color: #28a745; /* Green for success indicators */
+  --danger-color: #dc3545; /* Red for danger indicators */
+}
+
+/* Auth Page Styles */
+.auth-page {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 15px;
+  background: linear-gradient(135deg, #e0f2fe, #f0f9ff);
+}
+
+.auth-container {
+  display: flex;
+  width: 100%;
+  max-width: 1000px;
+  background: rgba(255, 255, 255, 0.85);
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 15px 50px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(226, 232, 240, 0.7);
+}
+
+.auth-left-panel {
+  flex: 1;
+  background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+  color: white;
+  padding: 30px 25px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.auth-left-panel::before {
+  content: "";
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+  top: -100px;
+  right: -100px;
+}
+
+.auth-left-panel::after {
+  content: "";
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.07);
+  bottom: -80px;
+  left: -80px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 30px;
+}
+
+.logo i {
+  font-size: 28px;
+}
+
+.logo h1 {
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.welcome-text h2 {
+  font-size: 28px;
+  margin-bottom: 12px;
+  font-weight: 700;
+}
+
+.welcome-text p {
+  font-size: 16px;
+  line-height: 1.5;
+  opacity: 0.9;
+  max-width: 90%;
+}
+
+.features {
+  margin-top: 30px;
+}
+
+.feature {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 15px;
+}
+
+.feature .feature-icon {
+  width: 40px;
+  height: 40px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.feature .feature-icon i {
+  font-size: 20px;
+  color: white;
+}
+
+.feature .feature-content {
+  flex: 1;
+}
+
+.feature h3 {
+  font-size: 18px;
+  margin-bottom: 4px;
+}
+
+.feature p {
+  font-size: 14px;
+  margin-bottom: 0;
+}
+
+.auth-right-panel {
+  flex: 1;
+  padding: 30px 25px;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+}
+
+.form-header {
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+.form-header h2 {
+  font-size: 24px;
+  margin-bottom: 8px;
+  color: var(--dark-color);
+}
+
+.form-header p {
+  color: var(--gray-500);
+  font-size: 14px;
+  margin-bottom: 0;
+}
+
+.login-options {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 25px;
+}
+
+.login-option {
+  flex: 1;
+  padding: 15px;
+  border-radius: 10px;
+  border: 1px solid var(--gray-200);
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background: white;
+}
+
+.login-option:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.login-option.active {
+  border-color: var(--primary-color);
+  background: rgba(67, 97, 238, 0.05);
+}
+
+.login-option i {
+  font-size: 24px;
+  margin-bottom: 12px;
+  color: var(--primary-color);
+}
+
+.login-option.student i {
+  color: var(--secondary-color);
+}
+
+.login-option.admin i {
+  color: var(--warning-color);
+}
+
+.login-option h3 {
+  font-size: 16px;
+  margin-bottom: 5px;
+}
+
+.login-option p {
+  font-size: 12px;
+  color: var(--gray-500);
+  margin-bottom: 0;
+}
+
+.form-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group {
+  margin-bottom: 18px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 500;
+  color: var(--dark-color);
+  font-size: 14px;
+}
+
+.input-group {
+  position: relative;
+}
+
+.input-group i {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--gray-500);
+  font-size: 14px;
+}
+
+.form-control {
+  width: 100%;
+  padding: 12px 12px 12px 38px;
+  border-radius: 8px;
+  border: 1px solid var(--gray-200);
+  font-size: 14px;
+  transition: all 0.3s ease;
+  background-color: white;
+}
+
+.form-control:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.2);
+}
+
+.btn-primary {
+  width: 100%;
+  padding: 12px;
+  border-radius: 8px;
+  border: none;
+  background: var(--primary-color);
+  color: white;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-bottom: 20px;
+}
+
+.btn-primary:hover {
+  background: var(--primary-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(37, 99, 235, 0.3);
+}
+
+.divider {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 20px 0;
+}
+
+.divider .line {
+  flex: 1;
+  height: 1px;
+  background: var(--gray-200);
+}
+
+.divider span {
+  color: var(--gray-500);
+  font-size: 13px;
+  white-space: nowrap;
+}
+
+.social-login {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.social-btn {
+  flex: 1;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid var(--gray-200);
+  background: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 13px;
+}
+
+.social-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.signup-link {
+  text-align: center;
+  font-size: 13px;
+  color: var(--gray-500);
+}
+
+.signup-link a {
+  color: var(--primary-color);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.signup-link a:hover {
+  text-decoration: underline;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .auth-container {
+    flex-direction: column;
+    max-height: none;
+  }
+  
+  .auth-left-panel {
+    padding: 25px 20px;
+  }
+  
+  .auth-right-panel {
+    padding: 25px 20px;
+  }
+  
+  .logo {
+    margin-bottom: 20px;
+  }
+  
+  .logo i {
+    font-size: 24px;
+  }
+  
+  .logo h1 {
+    font-size: 20px;
+  }
+  
+  .welcome-text h2 {
+    font-size: 20px;
+  }
+  
+  .features {
+    margin-top: 20px;
+  }
+  
+  .login-options {
+    gap: 10px;
+  }
+  
+  .login-option {
+    padding: 12px;
+  }
+  
+  .login-option i {
+    font-size: 20px;
+    margin-bottom: 8px;
+  }
+  
+  .login-option h3 {
+    font-size: 14px;
+  }
+  
+  .login-option p {
+    font-size: 11px;
+  }
+}
+
+@media (max-width: 480px) {
+  .auth-page {
+    padding: 10px;
+  }
+  
+  .auth-container {
+    border-radius: 15px;
+  }
+  
+  .auth-left-panel,
+  .auth-right-panel {
+    padding: 20px 15px;
+  }
+  
+  .feature {
+    gap: 10px;
+  }
+  
+  .feature i {
+    width: 28px;
+    height: 28px;
+    font-size: 14px;
+  }
+}
+
+.left-panel {
+    flex: 1;
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    color: white; /* This ensures all text is white */
+    padding: 50px 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.left-panel h1, .left-panel h2, .left-panel h3, .left-panel p {
+    color: white; /* Explicitly set all headings and paragraphs to white */
+}
+
+.feature i {
+    font-size: 20px;
+    background: rgba(255, 255, 255, 0.2);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white; /* Ensure icon color is white */
+}
+
+.Want-white{
+  color: #e0f2fe;
+}
+
+/* Add these styles to your existing components.css */
+
+.qr-placeholder {
+  text-align: center;
+  padding: 40px 20px;
+  background: var(--gray-100);
+  border-radius: var(--border-radius-md);
+  margin: 30px 0;
+}
+
+.timer-container {
+  text-align: center;
+  margin: 20px 0;
+}
+
+.timer {
+  font-weight: 700;
+  color: var(--danger-color);
+  font-size: var(--font-size-lg);
+}
+
+.progress-bar {
+  width: 100%;
+  height: 8px;
+  background-color: var(--gray-200);
+  border-radius: var(--border-radius-full);
+  overflow: hidden;
+  margin: 10px 0;
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--primary-color), var(--success-color));
+  transition: width 1s linear;
+}
+
+/* Existing QR container styles */
+.qr-container {
+  background: var(--white);
+  padding: var(--spacing-lg);
+  border-radius: var(--border-radius-md);
+  display: inline-block;
+  margin: var(--spacing-xl) auto;
+  box-shadow: var(--shadow-inner);
+  text-align: center;
+}
+/* Student Dashboard Styles */
+.student-dashboard {
+  padding: 20px;
+  background-color: #afdfff;
+}
+
+.dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 5px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo i {
+  font-size: 34px;
+  color: var(--primary-color);
+}
+
+.logo span {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--primary-color);
+}
+
+.user-profile {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+} 
+
+.avatar {
+  width: 40px;
+  height: 40px;
+  background: var(--primary-color);
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+}
+
+.user-info .username {
+  font-size: 16px;
+  font-weight: 700;
+  color: #0033ff;
+}
+
+.user-info .role {
+  font-size: 14px;
+  color: var(--gray-500);
+}
+
+.tabs {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+.tab {
+  font-size: 16px;
+  font-weight: 600;
+  padding: 10px 15px;
+  border-bottom: 2px solid transparent;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.tab.active {
+  border-bottom-color: #cdebff;
+}
+
+.payment-section {
+  background: rgba(255, 255, 255, 0.85);
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.section-title {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+.payment-options {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+
+}
+
+.payment-option {
+  background: white;
+  border-radius: 10px;
+  padding: 20px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: 1px solid #afdfff;
+  border-radius: 20px;
+}
+
+.payment-option:hover,
+.payment-option.selected {
+  background: var(--primary-light);
+}
+
+.payment-option i {
+  font-size: 32px;
+  margin-bottom: 10px;
+}
+
+.payment-option h3 {
+  font-size: 18px;
+  margin-bottom: 5px;
+}
+
+.payment-option p {
+  font-size: 14px;
+  color: var(--gray-500);
+}
+
+.payment-form {
+  margin-top: 20px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 500;
+  color: var(--dark-color);
+}
+
+.payment-form input,
+.payment-form textarea {
+  width: 100%;
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid var(--gray-200);
+  font-size: 14px;
+  transition: all 0.3s ease;
+  background-color: white;
+}
+
+.security-features {
+  display: flex;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.feature {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+}
+
+.feature i {
+  font-size: 24px;
+  color: var(--primary-color);
+}
+
+.feature p {
+  font-size: 14px;
+  color: var(--gray-500);
+}
+
+.btn-primary {
+  width: 100%;
+  padding: 12px;
+  border-radius: 8px;
+  border: none;
+  background: var(--primary-color);
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 20px;
+}
+
+.btn-primary:hover {
+  background: var(--primary-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(37, 99, 235, 0.3);
+}
+
+.success-notification {
+  background: rgba(0, 150, 255, 0.1);
+  border-radius: 8px;
+  padding: 20px;
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.success-notification i {
+  font-size: 24px;
+  color: var(--primary-color);
+}
+
+.success-notification h3 {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--primary-color);
+}
+
+.success-notification p {
+  font-size: 14px;
+  color: var(--dark-color);
+}
+
+.selected-payment-method {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.btn-secondary {
+  width: 100%;
+  padding: 12px;
+  border-radius: 8px;
+  border: none;
+  background: var(--gray-200);
+  color: var(--dark-color);
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 20px;
+}
+
+.btn-secondary:hover {
+  background: var(--gray-300);
+}
+
+/* Add these styles to your existing components.css */
+
+/* QR Code Section Styles */
+.qr-section {
+  background-color: var(--gray-50);
+  border-radius: var(--border-radius-md);
+  padding: var(--spacing-lg);
+  margin: var(--spacing-xl) 0;
+  text-align: center;
+}
+
+.qr-section h3 {
+  margin-bottom: var(--spacing-sm);
+  color: var(--dark-color);
+}
+
+.qr-section p {
+  color: var(--gray-600);
+  font-size: var(--font-size-sm);
+  margin-bottom: var(--spacing-lg);
+}
+
+.timer-container {
+  text-align: center;
+  margin-top: var(--spacing-md);
+}
+
+.timer {
+  font-weight: 700;
+  color: var(--danger-color);
+  font-size: var(--font-size-lg);
+}
+
+.progress-bar {
+  width: 100%;
+  height: 8px;
+  background-color: var(--gray-200);
+  border-radius: var(--border-radius-full);
+  overflow: hidden;
+  margin: 10px 0;
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--primary-color), var(--success-color));
+  transition: width 1s linear;
+}
+
+/* Existing QR container styles (if you have them) */
+.qr-container {
+  background: var(--white);
+  padding: var(--spacing-lg);
+  border-radius: var(--border-radius-md);
+  display: inline-block;
+  margin: var(--spacing-md) auto;
+  box-shadow: var(--shadow-inner);
+  text-align: center;
+}
+
+/* Placeholder styles (if you have them) */
+.qr-placeholder {
+  text-align: center;
+  padding: 40px 20px;
+  background: var(--gray-100);
+  border-radius: var(--border-radius-md);
+  margin: 30px 0;
+}
+
+.payment-container{
+  box-shadow: 1px 1px 5px #afdfff;
+  border: 2px solid #afdfff;
+  border-radius: 20px;
+}
+#mybtn{
+  width: 40%;
+}
+
+/* Add these styles to your existing components.css */
+
+/* Payment History Section */
+.payment-history-section {
+  background: rgba(255, 255, 255, 0.85);
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.history-container {
+  overflow-x: auto; /* Allows horizontal scrolling on small screens */
+}
+
+.history-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: var(--spacing-md);
+}
+
+.history-table thead {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+.history-table th,
+.history-table td {
+  padding: 12px 15px;
+  text-align: left;
+  border-bottom: 1px solid var(--gray-200);
+}
+
+.history-table th {
+  font-weight: 600;
+  font-size: var(--font-size-sm);
+}
+
+.history-table tbody tr:hover {
+  background-color: var(--gray-50);
+}
+
+/* Status badges */
+.status {
+  padding: 4px 8px;
+  border-radius: 20px;
+  font-size: var(--font-size-xs);
+  font-weight: 500;
+}
+
+.status.success {
+  background-color: rgba(16, 185, 129, 0.1); /* Success color with opacity */
+  color: var(--success-color);
+}
+
+.status.failed {
+  background-color: rgba(239, 68, 68, 0.1); /* Danger color with opacity */
+  color: var(--danger-color);
+}
+
+.no-history {
+  text-align: center;
+  color: var(--gray-500);
+  font-style: italic;
+  padding: 40px 20px;
+}
+
+/* Responsive Table */
+@media (max-width: 768px) {
+  .history-table,
+  .history-table thead,
+  .history-table tbody,
+  .history-table th,
+  .history-table td,
+  .history-table tr {
+    display: block;
+  }
+
+  .history-table thead tr {
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+  }
+
+  .history-table tr {
+    border: 1px solid var(--gray-200);
+    margin-bottom: 10px;
+    border-radius: 8px;
+    padding: 10px;
+    background-color: white;
+  }
+
+  .history-table td {
+    border: none;
+    position: relative;
+    padding: 8px 8px 8px 40%; /* Indent data to make room for labels */
+    text-align: right;
+  }
+
+  .history-table td::before {
+    content: attr(data-label) ": ";
+    position: absolute;
+    left: 6px;
+    width: 35%;
+    text-align: left;
+    font-weight: 600;
+    color: var(--dark-color);
+  }
+}
+
+/* Tabs Styles */
+.tabs {
+  display: flex;
+  gap: 10px; /* Space between tabs */
+  margin-bottom: 20px; /* Space below tabs */
+}
+
+.tab {
+  padding: 10px 20px; /* Padding inside each tab */
+  border: 1px solid var(--gray-400); /* Border around tabs */
+  background-color: white; /* Background color */
+  font-size: var(--font-size-md); /* Font size */
+  font-weight: 600; /* Font weight */
+  cursor: pointer; /* Pointer cursor on hover */
+  transition: all 0.3s ease; /* Smooth transitions */
+  border-radius: var(--border-radius-sm); /* Rounded corners */
+}
+
+.tab.active {
+  background-color: var(--primary-color); /* Active tab background */
+  color: white; /* Active tab text color */
+  border-color: var(--primary-color); /* Active tab border color */
+}
+
+.tab:hover {
+  background-color: var(--primary-light); /* Hover background */
+  color: white; /* Hover text color */
+}
+/* --- QR Modal Styles --- */
+.qr-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000; /* Ensure it's on top */
+}
+
+.qr-modal-content {
+  background: white;
+  border-radius: var(--border-radius-lg); /* Use your theme's large radius or define one */
+  padding: 0; /* Padding will be on inner elements */
+  max-width: 90vw; /* Responsive width */
+  width: 100%;
+  max-width: 500px; /* Max width for larger screens */
+  box-shadow: var(--shadow-xl); /* Use your theme's large shadow or define one */
+  overflow: hidden; /* Contain children */
+}
+
+.qr-modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--spacing-lg); /* Use your theme's large spacing */
+  background-color: var(--primary-color); /* Match your primary color */
+  color: white;
+}
+
+.qr-modal-header h3 {
+  margin: 0; /* Remove default margin */
+  font-size: var(--font-size-xl); /* Use your theme's xl font size */
+}
+
+.qr-modal-close {
+  background: none;
+  border: none;
+  color: white;
+  font-size: var(--font-size-2xl); /* Large close button */
+  cursor: pointer;
+  padding: 0;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.qr-modal-close:hover {
+  opacity: 0.8; /* Slight fade on hover */
+}
+
+.qr-modal-body {
+  padding: var(--spacing-lg); /* Padding inside the modal body */
+  text-align: center; /* Center content */
+}
+
+.qr-code-display {
+  margin: var(--spacing-lg) auto; /* Center the QR code with margin */
+  padding: var(--spacing-md); /* Padding around the QR */
+  background: white; /* White background for QR */
+  display: inline-block; /* Shrink to fit content */
+  border-radius: var(--border-radius-md); /* Rounded corners */
+  box-shadow: var(--shadow-inner); /* Inner shadow for depth */
+}
+
+.qr-info {
+  margin-bottom: var(--spacing-md); /* Space below the info text */
+  color: var(--gray-700); /* Use a dark gray from your theme */
+}
+
+.qr-info .timer {
+  font-weight: bold;
+  color: var(--danger-color); /* Use your danger color for the timer */
+}
+
+/* Progress bar styles (reuse existing ones if you have them, or add these) */
+.progress-bar {
+  width: 100%;
+  height: 8px;
+  background-color: var(--gray-200); /* Light gray background */
+  border-radius: var(--border-radius-full); /* Fully rounded */
+  overflow: hidden;
+  margin-top: var(--spacing-sm); /* Space above the bar */
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--primary-color), var(--success-color)); /* Gradient fill */
+  transition: width 1s linear; /* Smooth transition for width change */
+}
+/* --- End QR Modal Styles --- */
+
+
+/* --- Minor additions to existing styles --- */
+/* Ensure the 'Actions' column header aligns properly */
+.history-table th:last-child {
+    text-align: center; /* Center the 'Actions' header */
+}
+
+/* Style the 'Show QR' button within the table */
+.history-table .btn-sm {
+    padding: 6px 12px; /* Smaller padding */
+    font-size: var(--font-size-sm); /* Smaller font */
+}
+
+/* Center the button in the 'Actions' cell */
+.history-table td:last-child {
+    text-align: center; /* Center the button */
+}
+/* --- End Minor additions --- */

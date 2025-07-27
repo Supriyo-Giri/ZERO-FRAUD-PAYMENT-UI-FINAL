@@ -1,0 +1,218 @@
+/* src/styles/AdminDashboard.css */
+
+/* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: #f0f9ff; /* Light blue background */
+  color: #333;
+}
+
+/* Header Styles */
+.admin-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.admin-header .logo {
+  display: flex;
+  align-items: center;
+}
+
+.admin-header .logo i {
+  font-size: 24px;
+  margin-right: 10px;
+  color: var(--primary-color);
+}
+
+.admin-header .logo span {
+  font-size: 24px;
+  font-weight: 600;
+  color: var(--primary-color);
+}
+
+.admin-header .user-profile {
+  display: flex;
+  align-items: center;
+}
+
+.admin-header .user-avatar {
+  width: 40px;
+  height: 40px;
+  background: var(--primary-color);
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  margin-right: 10px;
+}
+
+.admin-header .user-info {
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.admin-header .user-info .username {
+  font-weight: 600;
+}
+
+/* Metrics Cards */
+.metrics-card {
+  background: white;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin: 20px;
+  text-align: center;
+  display: inline-block;
+  width: calc(25% - 40px); /* Adjust based on layout */
+}
+
+.metrics-card h3 {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.metrics-card .metric-value {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.metrics-card .change-indicator {
+  font-size: 12px;
+  color: var(--success-color); /* Green for positive change */
+}
+
+.metrics-card .change-indicator.decrease {
+  color: var(--danger-color); /* Red for negative change */
+}
+
+/* Payment Transactions Table */
+.payment-section {
+  margin-top: 20px;
+  padding: 20px;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.payment-section h2 {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.payment-section .search-filter {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.payment-section .search-bar {
+  display: flex;
+  align-items: center;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.payment-section .search-bar input {
+  padding: 10px;
+  border: none;
+  outline: none;
+  flex: 1;
+}
+
+.payment-section .search-bar i {
+  padding: 10px;
+  background: #f0f9ff;
+  color: #aaa;
+}
+
+.payment-section .filter-btn,
+.payment-section .export-btn {
+  margin-left: 10px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.payment-section .filter-btn {
+  background: #f0f9ff;
+  color: var(--primary-color);
+}
+
+.payment-section .filter-btn:hover {
+  background: var(--primary-color);
+  color: white;
+}
+
+.payment-section .export-btn {
+  background: var(--primary-color);
+  color: white;
+}
+
+.payment-section .export-btn:hover {
+  background: var(--primary-dark-color);
+}
+
+.payment-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.payment-table th,
+.payment-table td {
+  padding: 10px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+.payment-table th {
+  font-weight: 600;
+}
+
+.payment-table td:first-child {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.payment-table .user-avatar {
+  width: 30px;
+  height: 30px;
+  background: var(--primary-color);
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+}
+
+.payment-table .status-badge {
+  background: #e0f7fa;
+  color: #007bff;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 12px;
+}
+
+.payment-table .flag-checkbox {
+  text-align: center;
+}
