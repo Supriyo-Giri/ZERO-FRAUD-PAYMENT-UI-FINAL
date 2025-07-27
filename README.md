@@ -2,6 +2,14 @@
 
 A modern, secure payment application UI built with React (Vite). This project provides separate dashboards for students and administrators, featuring secure payment flows with QR code generation, transaction history, event management, and fraud detection tools.
 
+    DEPLOYED LINK
+    https://zero-fraud-payment-ui-final.vercel.app/
+
+    REPOSITORY LINK
+    https://github.com/Supriyo-Giri/ZERO-FRAUD-PAYMENT-UI-FINAL
+    
+    DEMO VIDEO EXPLAINATION
+    https://drive.google.com/file/d/1jln-dBt0FFoVUG4xMF_HjkX6HsPz0BZL/view?usp=drive_link
 ## Features
 
 *   **User Authentication**: Separate login/signup flows for Students and Admins.
